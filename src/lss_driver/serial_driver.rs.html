@@ -506,7 +506,7 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">framing_returns_none</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">payload</span> <span class="op">=</span> <span class="ident">BytesMut</span>::<span class="ident">from</span>(<span class="string">&quot;*5QV11200&quot;</span>.<span class="ident">as_bytes</span>());
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">payload</span> <span class="op">=</span> <span class="ident">BytesMut</span>::<span class="ident">from</span>(<span class="string">&quot;*5QV11200&quot;</span>);
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">codec</span> <span class="op">=</span> <span class="ident">LssCodec</span> {};
         <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">codec</span>.<span class="ident">decode</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">payload</span>).<span class="ident">unwrap</span>();
         <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">res</span>, <span class="prelude-val">None</span>);
@@ -514,7 +514,7 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">framing_returns_twice</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">payload</span> <span class="op">=</span> <span class="ident">BytesMut</span>::<span class="ident">from</span>(<span class="string">&quot;*1QV1\r*2QV2\r&quot;</span>.<span class="ident">as_bytes</span>());
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">payload</span> <span class="op">=</span> <span class="ident">BytesMut</span>::<span class="ident">from</span>(<span class="string">&quot;*1QV1\r*2QV2\r&quot;</span>);
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">codec</span> <span class="op">=</span> <span class="ident">LssCodec</span> {};
         <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">codec</span>.<span class="ident">decode</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">payload</span>).<span class="ident">unwrap</span>().<span class="ident">unwrap</span>();
         <span class="kw">let</span> (<span class="ident">id</span>, <span class="ident">val</span>) <span class="op">=</span> <span class="ident">res</span>.<span class="ident">separate</span>(<span class="string">&quot;QV&quot;</span>).<span class="ident">unwrap</span>();
@@ -530,7 +530,7 @@
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">query_voltage_gets_extracted_from_frame</span>() {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">payload</span> <span class="op">=</span> <span class="ident">BytesMut</span>::<span class="ident">from</span>(<span class="string">&quot;*5QV11200\r&quot;</span>.<span class="ident">as_bytes</span>());
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">payload</span> <span class="op">=</span> <span class="ident">BytesMut</span>::<span class="ident">from</span>(<span class="string">&quot;*5QV11200\r&quot;</span>);
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">codec</span> <span class="op">=</span> <span class="ident">LssCodec</span> {};
         <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">codec</span>.<span class="ident">decode</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">payload</span>).<span class="ident">unwrap</span>().<span class="ident">unwrap</span>();
         <span class="kw">let</span> (<span class="ident">id</span>, <span class="ident">val</span>) <span class="op">=</span> <span class="ident">res</span>.<span class="ident">separate</span>(<span class="string">&quot;QV&quot;</span>).<span class="ident">unwrap</span>();
@@ -561,13 +561,13 @@
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">simple_command_serializes</span>() {
         <span class="kw">let</span> <span class="ident">command</span> <span class="op">=</span> <span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="number">1</span>, <span class="string">&quot;QV&quot;</span>);
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">command</span>.<span class="ident">as_bytes</span>(), <span class="string">&quot;#1QV\r&quot;</span>.<span class="ident">as_bytes</span>())
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">command</span>.<span class="ident">as_bytes</span>(), <span class="string">b&quot;#1QV\r&quot;</span>)
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
     <span class="kw">fn</span> <span class="ident">param_command_serializes</span>() {
         <span class="kw">let</span> <span class="ident">command</span> <span class="op">=</span> <span class="ident">LssCommand</span>::<span class="ident">with_param</span>(<span class="number">1</span>, <span class="string">&quot;D&quot;</span>, <span class="number">10</span>);
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">command</span>.<span class="ident">as_bytes</span>(), <span class="string">&quot;#1D10\r&quot;</span>.<span class="ident">as_bytes</span>())
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">command</span>.<span class="ident">as_bytes</span>(), <span class="string">b&quot;#1D10\r&quot;</span>)
     }
 
     <span class="attribute">#[<span class="ident">test</span>]</span>
