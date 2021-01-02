@@ -1145,6 +1145,27 @@
 <span id="1142">1142</span>
 <span id="1143">1143</span>
 <span id="1144">1144</span>
+<span id="1145">1145</span>
+<span id="1146">1146</span>
+<span id="1147">1147</span>
+<span id="1148">1148</span>
+<span id="1149">1149</span>
+<span id="1150">1150</span>
+<span id="1151">1151</span>
+<span id="1152">1152</span>
+<span id="1153">1153</span>
+<span id="1154">1154</span>
+<span id="1155">1155</span>
+<span id="1156">1156</span>
+<span id="1157">1157</span>
+<span id="1158">1158</span>
+<span id="1159">1159</span>
+<span id="1160">1160</span>
+<span id="1161">1161</span>
+<span id="1162">1162</span>
+<span id="1163">1163</span>
+<span id="1164">1164</span>
+<span id="1165">1165</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! # Lynxmotion Smart Servo Driver</span>
 <span class="doccomment">//!</span>
@@ -1932,13 +1953,14 @@
     <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">test_command</span> {
         (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">expected</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>:<span class="ident">expr</span>) <span class="op">=</span><span class="op">&gt;</span> {
             <span class="attribute">#[<span class="ident">tokio</span>::<span class="ident">test</span>]</span>
+            <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">redundant_closure_call</span>)]</span>
             <span class="ident">async</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>() {
                 <span class="kw">let</span> <span class="ident">mocked_framed_driver</span> <span class="op">=</span> <span class="ident">MockedDriver</span> {
                     <span class="ident">expected_send</span>: <span class="macro">vec</span><span class="macro">!</span>[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">expected</span>.<span class="ident">to_owned</span>()],
                     <span class="ident">receive</span>: <span class="macro">vec</span><span class="macro">!</span>[],
                 };
                 <span class="kw">let</span> <span class="ident">driver</span> <span class="op">=</span> <span class="ident">LSSDriver</span>::<span class="ident">with_driver</span>(<span class="ident">Box</span>::<span class="ident">new</span>(<span class="ident">mocked_framed_driver</span>));
-                <span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>(<span class="ident">driver</span>).<span class="ident">await</span>;
+                (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>)(<span class="ident">driver</span>).<span class="ident">await</span>;
             }
         };
     }
@@ -1946,14 +1968,31 @@
     <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">test_query</span> {
         (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">expected</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">recv</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">val</span>:<span class="ident">expr</span>) <span class="op">=</span><span class="op">&gt;</span> {
             <span class="attribute">#[<span class="ident">tokio</span>::<span class="ident">test</span>]</span>
+            <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">redundant_closure_call</span>)]</span>
             <span class="ident">async</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>() {
                 <span class="kw">let</span> <span class="ident">mocked_framed_driver</span> <span class="op">=</span> <span class="ident">MockedDriver</span> {
                     <span class="ident">expected_send</span>: <span class="macro">vec</span><span class="macro">!</span>[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">expected</span>.<span class="ident">to_owned</span>()],
                     <span class="ident">receive</span>: <span class="macro">vec</span><span class="macro">!</span>[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">recv</span>.<span class="ident">to_owned</span>()],
                 };
                 <span class="kw">let</span> <span class="ident">driver</span> <span class="op">=</span> <span class="ident">LSSDriver</span>::<span class="ident">with_driver</span>(<span class="ident">Box</span>::<span class="ident">new</span>(<span class="ident">mocked_framed_driver</span>));
-                <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>(<span class="ident">driver</span>).<span class="ident">await</span>;
+                <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>)(<span class="ident">driver</span>).<span class="ident">await</span>;
                 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">res</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">val</span>);
+            }
+        };
+    }
+
+    <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">test_query_float</span> {
+        (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">expected</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">recv</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">val</span>:<span class="ident">expr</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="attribute">#[<span class="ident">tokio</span>::<span class="ident">test</span>]</span>
+            <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">redundant_closure_call</span>)]</span>
+            <span class="ident">async</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>() {
+                <span class="kw">let</span> <span class="ident">mocked_framed_driver</span> <span class="op">=</span> <span class="ident">MockedDriver</span> {
+                    <span class="ident">expected_send</span>: <span class="macro">vec</span><span class="macro">!</span>[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">expected</span>.<span class="ident">to_owned</span>()],
+                    <span class="ident">receive</span>: <span class="macro">vec</span><span class="macro">!</span>[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">recv</span>.<span class="ident">to_owned</span>()],
+                };
+                <span class="kw">let</span> <span class="ident">driver</span> <span class="op">=</span> <span class="ident">LSSDriver</span>::<span class="ident">with_driver</span>(<span class="ident">Box</span>::<span class="ident">new</span>(<span class="ident">mocked_framed_driver</span>));
+                <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>)(<span class="ident">driver</span>).<span class="ident">await</span>;
+                <span class="macro">assert_relative_eq</span><span class="macro">!</span>(<span class="ident">res</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">val</span>);
             }
         };
     }
@@ -1961,8 +2000,11 @@
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_hold_command</span>,
         <span class="string">&quot;#4H\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">halt_hold</span>(<span class="number">4_u8</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> {
+            <span class="ident">driver</span>.<span class="ident">halt_hold</span>(<span class="number">4_u8</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>();
+        }
     );
+
     <span class="macro">test_query</span><span class="macro">!</span>(
         <span class="ident">test_query_id</span>,
         <span class="string">&quot;#254QID\r&quot;</span>,
@@ -1982,14 +2024,14 @@
         <span class="string">&quot;#1D200\r&quot;</span>,
         <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">move_to_position</span>(<span class="number">1</span>, <span class="number">20.0</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
     );
-    <span class="macro">test_query</span><span class="macro">!</span>(
+    <span class="macro">test_query_float</span><span class="macro">!</span>(
         <span class="ident">test_query_current_position</span>,
         <span class="string">&quot;#5QD\r&quot;</span>,
         <span class="string">&quot;*5QD132\r&quot;</span>,
         <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_position</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">13.2</span>
     );
-    <span class="macro">test_query</span><span class="macro">!</span>(
+    <span class="macro">test_query_float</span><span class="macro">!</span>(
         <span class="ident">test_query_target_position</span>,
         <span class="string">&quot;#5QDT\r&quot;</span>,
         <span class="string">&quot;*5QDT6783\r&quot;</span>,
@@ -2003,7 +2045,7 @@
         <span class="string">&quot;#5WD90\r&quot;</span>,
         <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_rotation_speed</span>(<span class="number">5</span>, <span class="number">90.0</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
     );
-    <span class="macro">test_query</span><span class="macro">!</span>(
+    <span class="macro">test_query_float</span><span class="macro">!</span>(
         <span class="ident">test_query_rotation_speed_degrees</span>,
         <span class="string">&quot;#5QWD\r&quot;</span>,
         <span class="string">&quot;*5QWD90\r&quot;</span>,
@@ -2166,7 +2208,7 @@
         <span class="string">&quot;#5SD1800\r&quot;</span>,
         <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_maximum_speed</span>(<span class="number">5</span>, <span class="number">180.</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
     );
-    <span class="macro">test_query</span><span class="macro">!</span>(
+    <span class="macro">test_query_float</span><span class="macro">!</span>(
         <span class="ident">test_query_maximum_speed</span>,
         <span class="string">&quot;#5QSD\r&quot;</span>,
         <span class="string">&quot;*5QSD1800\r&quot;</span>,
@@ -2175,21 +2217,21 @@
     );
 
     <span class="comment">// test telemetry queries</span>
-    <span class="macro">test_query</span><span class="macro">!</span>(
+    <span class="macro">test_query_float</span><span class="macro">!</span>(
         <span class="ident">test_query_voltage</span>,
         <span class="string">&quot;#5QV\r&quot;</span>,
         <span class="string">&quot;*5QV11200\r&quot;</span>,
         <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_voltage</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">11.2</span>
     );
-    <span class="macro">test_query</span><span class="macro">!</span>(
+    <span class="macro">test_query_float</span><span class="macro">!</span>(
         <span class="ident">test_query_temperature</span>,
         <span class="string">&quot;#5QT\r&quot;</span>,
         <span class="string">&quot;*5QT564\r&quot;</span>,
         <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_temperature</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">56.4</span>
     );
-    <span class="macro">test_query</span><span class="macro">!</span>(
+    <span class="macro">test_query_float</span><span class="macro">!</span>(
         <span class="ident">test_query_current</span>,
         <span class="string">&quot;#5QC\r&quot;</span>,
         <span class="string">&quot;*5QC140\r&quot;</span>,
