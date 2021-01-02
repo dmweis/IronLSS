@@ -1145,6 +1145,7 @@
 <span id="1142">1142</span>
 <span id="1143">1143</span>
 <span id="1144">1144</span>
+<span id="1145">1145</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! # Lynxmotion Smart Servo Driver</span>
 <span class="doccomment">//!</span>
@@ -1884,6 +1885,7 @@
 <span class="kw">mod</span> <span class="ident">tests</span> {
     <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">serial_driver</span>::<span class="ident">LssResponse</span>;
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use</span> <span class="ident">approx</span>::<span class="ident">assert_relative_eq</span>;
     <span class="kw">use</span> <span class="ident">async_trait</span>::<span class="ident">async_trait</span>;
     <span class="kw">use</span> <span class="ident">tokio</span>;
 
@@ -1926,7 +1928,7 @@
         <span class="ident">driver</span>.<span class="ident">move_to_position</span>(<span class="number">3</span>, <span class="number">180.0</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>();
         <span class="ident">driver</span>.<span class="ident">halt_hold</span>(<span class="number">4</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>();
         <span class="kw">let</span> <span class="ident">voltage</span> <span class="op">=</span> <span class="ident">driver</span>.<span class="ident">query_voltage</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>();
-        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">voltage</span>, <span class="number">11.2</span>);
+        <span class="macro">assert_relative_eq</span><span class="macro">!</span>(<span class="ident">voltage</span>, <span class="number">11.2</span>);
     }
 
     <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">test_command</span> {
