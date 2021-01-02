@@ -1,0 +1,61 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `lss_driver` crate."><meta name="keywords" content="rust, rustlang, rust-lang, lss_driver"><title>lss_driver - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../ayu.css" disabled ><script id="default-settings"></script><script src="../storage.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../down-arrow.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../lss_driver/index.html'><div class='logo-container rust-logo'><img src='../rust-logo.png' alt='logo'></div></a><p class="location">Crate lss_driver</p><div class="block version"><p>Version 0.3.0</p></div><div class="sidebar-elems"><a id="all-types" href="all.html"><p>See all lss_driver's items</p></a><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li></ul></div><p class="location"></p><script>window.sidebarCurrent = {name: "lss_driver", ty: "mod", relpath: "../"};</script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../settings.html"><img src="../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="out-of-band"><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../src/lss_driver/lib.rs.html#1-1144" title="goto source code">[src]</a></span><span class="in-band">Crate <a class="mod" href="">lss_driver</a></span></h1><div class="docblock"><h1 id="lynxmotion-smart-servo-driver" class="section-header"><a href="#lynxmotion-smart-servo-driver">Lynxmotion Smart Servo Driver</a></h1>
+<p><a href="https://crates.io/crates/lss_driver"><img src="https://img.shields.io/crates/v/lss_driver.svg" alt="Crates.io" /></a>
+<a href="https://docs.rs/lss_driver"><img src="https://docs.rs/lss_driver/badge.svg" alt="Docs" /></a>
+<a href="https://github.com/dmweis/lss_driver/actions"><img src="https://github.com/dmweis/lss_driver/workflows/Rust/badge.svg" alt="Rust" /></a>
+<a href="https://codecov.io/gh/dmweis/lss_driver"><img src="https://codecov.io/gh/dmweis/lss_driver/branch/master/graph/badge.svg" alt="codecov" /></a>
+<a href="https://github.com/dmweis/lss_driver"><img src="https://img.shields.io/crates/l/lss_driver" alt="License" /></a></p>
+<p>This crate provides an asynchronous serial driver the the Lynxmotion smart servos.</p>
+<p>You can read more about the servos on the official <a href="https://www.robotshop.com/info/wiki/lynxmotion/view/lynxmotion-smart-servo/">robotshop wiki</a></p>
+<h2 id="driver" class="section-header"><a href="#driver">Driver</a></h2>
+<p>The Smart servos are controlled over a serial UART protocol.</p>
+<p>You can read about the protocol <a href="https://www.robotshop.com/info/wiki/lynxmotion/view/lynxmotion-smart-servo/lss-communication-protocol/">here</a>
+It's highly recommended to at least skim the protocol page before trying to use this driver.</p>
+<p>This driver currently doesn't implement all features from the protocol.<br />
+Some missing features are modifiers and setup commands.<br />
+If there are any missing commands or features you'd like added feel free to raise a PR or an issue.</p>
+<p>This driver uses <code>async/await</code>. As a result you will need to use an async runtime.
+The driver is based on <a href="https://github.com/berkowski/tokio-serial">tokio-serial</a> so tokio would be a good choice but any should work.</p>
+<h2 id="usage" class="section-header"><a href="#usage">Usage</a></h2>
+<p>This crate comes with multiple <a href="https://github.com/dmweis/lss_driver/tree/master/examples">examples</a>.<br />
+These are a good start if you want to learn how to use it.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered">
+
+<span class="attribute">#[<span class="ident">tokio</span>::<span class="ident">main</span>]</span>
+<span class="ident">async</span> <span class="kw">fn</span> <span class="ident">main</span>() {
+    <span class="comment">// Create a driver on port `COM14` or `/dev/ttyUSB0`...</span>
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">driver</span> <span class="op">=</span> <span class="ident">lss_driver</span>::<span class="ident">LSSDriver</span>::<span class="ident">new</span>(<span class="string">&quot;COM14&quot;</span>).<span class="ident">unwrap</span>();
+    <span class="comment">// In case there is only one servo connected</span>
+    <span class="comment">// we can query it&#39;s ID using the broadcast ID</span>
+    <span class="kw">let</span> <span class="ident">id</span> <span class="op">=</span> <span class="ident">driver</span>.<span class="ident">query_id</span>(<span class="ident">lss_driver</span>::<span class="ident">BROADCAST_ID</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>();
+    <span class="comment">// move motor with ID 5 to 90.0 degrees</span>
+    <span class="ident">driver</span>.<span class="ident">move_to_position</span>(<span class="number">5</span>, <span class="number">90.0</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>();
+    <span class="comment">// Set color of servo with ID 5 to Magenta</span>
+    <span class="ident">driver</span>.<span class="ident">set_color</span>(<span class="number">5</span>, <span class="ident">lss_driver</span>::<span class="ident">LedColor</span>::<span class="ident">Magenta</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>();
+}
+</pre></div>
+<h2 id="building" class="section-header"><a href="#building">Building</a></h2>
+<p>This package shouldn't depend on any native libraries.<br />
+Rust <a href="https://gitlab.com/susurrus/serialport-rs">serialport</a> depends on <code>pkg-config</code> and <code>libudev-dev</code> on GNU Linux but they should be disabled for this crate.<br />
+If you do run into issues with them failing it may be worth looking into their dependencies and raising an issue here.</p>
+<h2 id="disclaimer" class="section-header"><a href="#disclaimer">Disclaimer</a></h2>
+<p><em>This software is not officially endorsed by Lynxmotion or Robotshop!</em></p>
+<p>All product names, logos, and brands are property of their respective owners. All company, product and service names used in this website are for identification purposes only. Use of these names, logos, and brands does not imply endorsement.</p>
+</div><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
+<table><tr class="module-item"><td><a class="struct" href="struct.LSSDriver.html" title="lss_driver::LSSDriver struct">LSSDriver</a></td><td class="docblock-short"><p>Driver for the LSS servo</p>
+</td></tr></table><h2 id="enums" class="section-header"><a href="#enums">Enums</a></h2>
+<table><tr class="module-item"><td><a class="enum" href="enum.LedBlinking.html" title="lss_driver::LedBlinking enum">LedBlinking</a></td><td class="docblock-short"><p>Which status should trigger LED blinking
+Can be combined in a list</p>
+</td></tr><tr class="module-item"><td><a class="enum" href="enum.LedColor.html" title="lss_driver::LedColor enum">LedColor</a></td><td class="docblock-short"><p>Colors for the LED on the servo</p>
+</td></tr><tr class="module-item"><td><a class="enum" href="enum.LssDriverError.html" title="lss_driver::LssDriverError enum">LssDriverError</a></td><td class="docblock-short"><p>Driver errors</p>
+</td></tr><tr class="module-item"><td><a class="enum" href="enum.Model.html" title="lss_driver::Model enum">Model</a></td><td class="docblock-short"><p>Version of the motor</p>
+</td></tr><tr class="module-item"><td><a class="enum" href="enum.MotorStatus.html" title="lss_driver::MotorStatus enum">MotorStatus</a></td><td class="docblock-short"><p>Status of the motor as responded to status query
+If status is safe mode you can use <code>query_safety_status</code> to see more details</p>
+</td></tr><tr class="module-item"><td><a class="enum" href="enum.SafeModeStatus.html" title="lss_driver::SafeModeStatus enum">SafeModeStatus</a></td><td class="docblock-short"><p>Reason why status mode is engaged
+if <code>query_status</code> doesn't return <code>SafeMode</code> this should be <code>NoLimits</code></p>
+</td></tr></table><h2 id="constants" class="section-header"><a href="#constants">Constants</a></h2>
+<table><tr class="module-item"><td><a class="constant" href="constant.BROADCAST_ID.html" title="lss_driver::BROADCAST_ID constant">BROADCAST_ID</a></td><td class="docblock-short"><p>ID used to talk to all motors on a bus at once</p>
+</td></tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../";window.currentCrate = "lss_driver";</script><script src="../main.js"></script><script defer src="../search-index.js"></script></body></html>

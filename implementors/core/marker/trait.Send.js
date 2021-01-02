@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["lss_driver"] = [{"text":"impl Send for LSSDriver","synthetic":true,"types":[]},{"text":"impl Send for LssDriverError","synthetic":true,"types":[]},{"text":"impl Send for LedColor","synthetic":true,"types":[]},{"text":"impl Send for MotorStatus","synthetic":true,"types":[]},{"text":"impl Send for SafeModeStatus","synthetic":true,"types":[]},{"text":"impl Send for Model","synthetic":true,"types":[]},{"text":"impl Send for LedBlinking","synthetic":true,"types":[]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
