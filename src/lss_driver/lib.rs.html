@@ -1269,7 +1269,7 @@
 
 <span class="doccomment">/// Driver for the LSS servo</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LSSDriver</span> {
-    <span class="ident">driver</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">dyn</span> <span class="ident">FramedDriver</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span><span class="op">&gt;</span>,
+    <span class="ident">driver</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">dyn</span> <span class="ident">FramedDriver</span> <span class="op">+</span> <span class="ident">Send</span><span class="op">&gt;</span>,
 }
 
 <span class="kw">impl</span> <span class="ident">LSSDriver</span> {
