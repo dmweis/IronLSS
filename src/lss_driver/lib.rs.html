@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script id="default-settings"></script><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
-<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../lss_driver/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../lss_driver/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices" role="menu"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" class="help-button">?</button>
                 <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
@@ -1194,6 +1194,50 @@
 <span id="1191">1191</span>
 <span id="1192">1192</span>
 <span id="1193">1193</span>
+<span id="1194">1194</span>
+<span id="1195">1195</span>
+<span id="1196">1196</span>
+<span id="1197">1197</span>
+<span id="1198">1198</span>
+<span id="1199">1199</span>
+<span id="1200">1200</span>
+<span id="1201">1201</span>
+<span id="1202">1202</span>
+<span id="1203">1203</span>
+<span id="1204">1204</span>
+<span id="1205">1205</span>
+<span id="1206">1206</span>
+<span id="1207">1207</span>
+<span id="1208">1208</span>
+<span id="1209">1209</span>
+<span id="1210">1210</span>
+<span id="1211">1211</span>
+<span id="1212">1212</span>
+<span id="1213">1213</span>
+<span id="1214">1214</span>
+<span id="1215">1215</span>
+<span id="1216">1216</span>
+<span id="1217">1217</span>
+<span id="1218">1218</span>
+<span id="1219">1219</span>
+<span id="1220">1220</span>
+<span id="1221">1221</span>
+<span id="1222">1222</span>
+<span id="1223">1223</span>
+<span id="1224">1224</span>
+<span id="1225">1225</span>
+<span id="1226">1226</span>
+<span id="1227">1227</span>
+<span id="1228">1228</span>
+<span id="1229">1229</span>
+<span id="1230">1230</span>
+<span id="1231">1231</span>
+<span id="1232">1232</span>
+<span id="1233">1233</span>
+<span id="1234">1234</span>
+<span id="1235">1235</span>
+<span id="1236">1236</span>
+<span id="1237">1237</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! # Lynxmotion Smart Servo Driver</span>
 <span class="doccomment">//!</span>
@@ -1269,7 +1313,7 @@
 
 <span class="doccomment">/// Driver for the LSS servo</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">LSSDriver</span> {
-    <span class="ident">driver</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">dyn</span> <span class="ident">FramedDriver</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span><span class="op">&gt;</span>,
+    <span class="ident">driver</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">FramedDriver</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span><span class="op">&gt;</span>,
 }
 
 <span class="kw">impl</span> <span class="ident">LSSDriver</span> {
@@ -1317,7 +1361,7 @@
     <span class="doccomment">/// Creates new LSS driver with a custom implementation of the transport</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This is used for tests and can be used if you want to reimplement the driver over network</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_driver</span>(<span class="ident">driver</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="ident">dyn</span> <span class="ident">FramedDriver</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">LSSDriver</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_driver</span>(<span class="ident">driver</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">FramedDriver</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">LSSDriver</span> {
         <span class="ident">LSSDriver</span> { <span class="ident">driver</span> }
     }
 
@@ -1329,8 +1373,8 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to reset</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">reset</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;RESET&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">reset</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;RESET&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 
@@ -1352,9 +1396,9 @@
     <span class="doccomment">///     let id = driver.query_id(lss_driver::BROADCAST_ID).await.unwrap();</span>
     <span class="doccomment">/// }</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_id</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QID&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_id</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QID&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">response</span>.<span class="ident">get_val</span>(<span class="string">&quot;QID&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span> <span class="kw">as</span> <span class="ident">u8</span>)
     }
@@ -1369,10 +1413,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to control</span>
     <span class="doccomment">/// * `new_id` - ID You want that servo to have</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">set_id</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>, <span class="ident">new_id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">set_id</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>, <span class="ident">new_id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">driver</span>
             .<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">with_param</span>(<span class="ident">id</span>, <span class="string">&quot;CID&quot;</span>, <span class="ident">new_id</span> <span class="kw">as</span> <span class="ident">i32</span>))
-            .<span class="ident">await</span><span class="question-mark">?</span>;
+            .<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 
@@ -1382,10 +1426,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to control</span>
     <span class="doccomment">/// * `color` - Color to set</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">set_color</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>, <span class="ident">color</span>: <span class="ident">LedColor</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">set_color</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>, <span class="ident">color</span>: <span class="ident">LedColor</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">driver</span>
             .<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">with_param</span>(<span class="ident">id</span>, <span class="string">&quot;LED&quot;</span>, <span class="ident">color</span> <span class="kw">as</span> <span class="ident">i32</span>))
-            .<span class="ident">await</span><span class="question-mark">?</span>;
+            .<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 
@@ -1394,9 +1438,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_color</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">LedColor</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QLED&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_color</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">LedColor</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QLED&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;QLED&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">LedColor</span>::<span class="ident">from_i32</span>(<span class="ident">value</span>)<span class="question-mark">?</span>)
     }
@@ -1420,11 +1464,45 @@
     <span class="doccomment">///     driver.move_to_position(5, 480.0).await;</span>
     <span class="doccomment">/// }</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">move_to_position</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>, <span class="ident">position</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">move_to_position</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>, <span class="ident">position</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">angle</span> <span class="op">=</span> (<span class="ident">position</span> <span class="op">*</span> <span class="number">10.0</span>).<span class="ident">round</span>() <span class="kw">as</span> <span class="ident">i32</span>;
         <span class="self">self</span>.<span class="ident">driver</span>
             .<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">with_param</span>(<span class="ident">id</span>, <span class="string">&quot;D&quot;</span>, <span class="ident">angle</span>))
-            .<span class="ident">await</span><span class="question-mark">?</span>;
+            .<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="prelude-val">Ok</span>(())
+    }
+
+    <span class="doccomment">/// Move to absolute position in degrees with modifier</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Supports virtual positions that are more than 360 degrees</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Arguments</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// * `id` - ID of servo you want to control</span>
+    <span class="doccomment">/// * `position` - Absolute position in degrees</span>
+    <span class="doccomment">/// * `modifier` - Modifier applied to this motion. Look at the type for more info.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Example</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```no_run</span>
+    <span class="doccomment">/// use lss_driver::LSSDriver;</span>
+    <span class="doccomment">/// use lss_driver::CommandModifier;</span>
+    <span class="doccomment">/// async fn async_main(){</span>
+    <span class="doccomment">///     let mut driver = LSSDriver::with_baud_rate(&quot;COM1&quot;, 115200).unwrap();</span>
+    <span class="doccomment">///     driver.move_to_position_with_modifier(5, 180.0, CommandModifier::Timed(2500)).await;</span>
+    <span class="doccomment">///     driver.move_to_position_with_modifier(5, 480.0, CommandModifier::Timed(2500)).await;</span>
+    <span class="doccomment">/// }</span>
+    <span class="doccomment">/// ```</span>
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">move_to_position_with_modifier</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
+        <span class="ident">id</span>: <span class="ident">u8</span>,
+        <span class="ident">position</span>: <span class="ident">f32</span>,
+        <span class="ident">modifier</span>: <span class="ident">CommandModifier</span>,
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+        <span class="kw">let</span> <span class="ident">angle</span> <span class="op">=</span> (<span class="ident">position</span> <span class="op">*</span> <span class="number">10.0</span>).<span class="ident">round</span>() <span class="kw">as</span> <span class="ident">i32</span>;
+        <span class="self">self</span>.<span class="ident">driver</span>
+            .<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">with_param_modifier</span>(<span class="ident">id</span>, <span class="string">&quot;D&quot;</span>, <span class="ident">angle</span>, <span class="ident">modifier</span>))
+            .<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 
@@ -1447,8 +1525,8 @@
     <span class="doccomment">///     driver.set_target_position(5, 480.0).await;</span>
     <span class="doccomment">/// }</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">set_target_position</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>, <span class="ident">position</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">move_to_position</span>(<span class="ident">id</span>, <span class="ident">position</span>).<span class="ident">await</span>
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">set_target_position</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>, <span class="ident">position</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">move_to_position</span>(<span class="ident">id</span>, <span class="ident">position</span>).<span class="kw">await</span>
     }
 
     <span class="doccomment">/// Query absolute current position in degrees</span>
@@ -1458,9 +1536,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_position</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QD&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_position</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QD&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;QD&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span> <span class="kw">as</span> <span class="ident">f32</span> <span class="op">/</span> <span class="number">10.0</span>)
     }
@@ -1472,9 +1550,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_target_position</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QDT&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_target_position</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QDT&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;QDT&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span> <span class="kw">as</span> <span class="ident">f32</span> <span class="op">/</span> <span class="number">10.0</span>)
     }
@@ -1485,10 +1563,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to control</span>
     <span class="doccomment">/// * `speed` - Speed in °/s</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">set_rotation_speed</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>, <span class="ident">speed</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">set_rotation_speed</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>, <span class="ident">speed</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">driver</span>
             .<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">with_param</span>(<span class="ident">id</span>, <span class="string">&quot;WD&quot;</span>, <span class="ident">speed</span> <span class="kw">as</span> <span class="ident">i32</span>))
-            .<span class="ident">await</span><span class="question-mark">?</span>;
+            .<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 
@@ -1497,9 +1575,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_rotation_speed</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QWD&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_rotation_speed</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QWD&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;QWD&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span> <span class="kw">as</span> <span class="ident">f32</span>)
     }
@@ -1511,9 +1589,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_status</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">MotorStatus</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;Q&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_status</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">MotorStatus</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;Q&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;Q&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">MotorStatus</span>::<span class="ident">from_i32</span>(<span class="ident">value</span>)<span class="question-mark">?</span>)
     }
@@ -1525,9 +1603,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_safety_status</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">SafeModeStatus</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;Q1&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_safety_status</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">SafeModeStatus</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;Q1&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;Q&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">SafeModeStatus</span>::<span class="ident">from_i32</span>(<span class="ident">value</span>)<span class="question-mark">?</span>)
     }
@@ -1542,10 +1620,10 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to control</span>
     <span class="doccomment">/// * `motion_profile` - set motion profile on/off</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">set_motion_profile</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>, <span class="ident">motion_profile</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">set_motion_profile</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>, <span class="ident">motion_profile</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">driver</span>
             .<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">with_param</span>(<span class="ident">id</span>, <span class="string">&quot;EM&quot;</span>, <span class="ident">motion_profile</span> <span class="kw">as</span> <span class="ident">i32</span>))
-            .<span class="ident">await</span><span class="question-mark">?</span>;
+            .<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 
@@ -1558,9 +1636,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_motion_profile</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QEM&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_motion_profile</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">bool</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QEM&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;QEM&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span> <span class="op">!</span><span class="op">=</span> <span class="number">0</span>)
     }
@@ -1576,7 +1654,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to control</span>
     <span class="doccomment">/// * `filter_position_count` - default if 5</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">set_filter_position_count</span>(
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">set_filter_position_count</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="ident">id</span>: <span class="ident">u8</span>,
         <span class="ident">filter_position_count</span>: <span class="ident">u8</span>,
@@ -1587,7 +1665,7 @@
                 <span class="string">&quot;FPC&quot;</span>,
                 <span class="ident">filter_position_count</span> <span class="kw">as</span> <span class="ident">i32</span>,
             ))
-            .<span class="ident">await</span><span class="question-mark">?</span>;
+            .<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 
@@ -1601,9 +1679,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_filter_position_count</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QFPC&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_filter_position_count</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QFPC&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;QFPC&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span> <span class="kw">as</span> <span class="ident">u8</span>)
     }
@@ -1616,14 +1694,14 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to control</span>
     <span class="doccomment">/// * `angular_stiffness` - value for angular stiffness (-10 to 10) (recommended -4 to 4)</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">set_angular_stiffness</span>(
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">set_angular_stiffness</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="ident">id</span>: <span class="ident">u8</span>,
         <span class="ident">angular_stiffness</span>: <span class="ident">i32</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">driver</span>
             .<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">with_param</span>(<span class="ident">id</span>, <span class="string">&quot;AS&quot;</span>, <span class="ident">angular_stiffness</span>))
-            .<span class="ident">await</span><span class="question-mark">?</span>;
+            .<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 
@@ -1634,9 +1712,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_angular_stiffness</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QAS&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_angular_stiffness</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QAS&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;QAS&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span>)
     }
@@ -1649,14 +1727,14 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to control</span>
     <span class="doccomment">/// * `angular_holding` - value for angular holding stiffness (-10 to 10)</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">set_angular_holding_stiffness</span>(
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">set_angular_holding_stiffness</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="ident">id</span>: <span class="ident">u8</span>,
         <span class="ident">angular_holding</span>: <span class="ident">i32</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">driver</span>
             .<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">with_param</span>(<span class="ident">id</span>, <span class="string">&quot;AH&quot;</span>, <span class="ident">angular_holding</span>))
-            .<span class="ident">await</span><span class="question-mark">?</span>;
+            .<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 
@@ -1667,9 +1745,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to control</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_angular_holding_stiffness</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QAH&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_angular_holding_stiffness</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QAH&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;QAH&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span>)
     }
@@ -1685,14 +1763,14 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to control</span>
     <span class="doccomment">/// * `angular_acceleration` - value for angular acceleration (1 to 100, Increments 10)</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">set_angular_acceleration</span>(
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">set_angular_acceleration</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="ident">id</span>: <span class="ident">u8</span>,
         <span class="ident">angular_acceleration</span>: <span class="ident">i32</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">driver</span>
             .<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">with_param</span>(<span class="ident">id</span>, <span class="string">&quot;AA&quot;</span>, <span class="ident">angular_acceleration</span>))
-            .<span class="ident">await</span><span class="question-mark">?</span>;
+            .<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 
@@ -1706,9 +1784,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_angular_acceleration</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QAA&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_angular_acceleration</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QAA&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;QAA&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span>)
     }
@@ -1724,14 +1802,14 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to control</span>
     <span class="doccomment">/// * `angular_deceleration` - value for angular deceleration (1 to 100, Increments 10)</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">set_angular_deceleration</span>(
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">set_angular_deceleration</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="ident">id</span>: <span class="ident">u8</span>,
         <span class="ident">angular_deceleration</span>: <span class="ident">i32</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">driver</span>
             .<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">with_param</span>(<span class="ident">id</span>, <span class="string">&quot;AD&quot;</span>, <span class="ident">angular_deceleration</span>))
-            .<span class="ident">await</span><span class="question-mark">?</span>;
+            .<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 
@@ -1745,9 +1823,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_angular_deceleration</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QAD&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_angular_deceleration</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QAD&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;QAD&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span>)
     }
@@ -1763,14 +1841,14 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to control</span>
     <span class="doccomment">/// * `maximum_motor_duty` - value for maximum motor duty (255 to 1023)</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">set_maximum_motor_duty</span>(
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">set_maximum_motor_duty</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="ident">id</span>: <span class="ident">u8</span>,
         <span class="ident">maximum_motor_duty</span>: <span class="ident">i32</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">driver</span>
             .<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">with_param</span>(<span class="ident">id</span>, <span class="string">&quot;MMD&quot;</span>, <span class="ident">maximum_motor_duty</span>))
-            .<span class="ident">await</span><span class="question-mark">?</span>;
+            .<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 
@@ -1784,9 +1862,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_maximum_motor_duty</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QMMD&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_maximum_motor_duty</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QMMD&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;QMMD&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span>)
     }
@@ -1801,14 +1879,14 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to control</span>
     <span class="doccomment">/// * `maximum_speed` - value for maximum speed</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">set_maximum_speed</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>, <span class="ident">maximum_speed</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">set_maximum_speed</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>, <span class="ident">maximum_speed</span>: <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">driver</span>
             .<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">with_param</span>(
                 <span class="ident">id</span>,
                 <span class="string">&quot;SD&quot;</span>,
                 (<span class="ident">maximum_speed</span> <span class="op">*</span> <span class="number">10.</span>) <span class="kw">as</span> <span class="ident">i32</span>,
             ))
-            .<span class="ident">await</span><span class="question-mark">?</span>;
+            .<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 
@@ -1821,9 +1899,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_maximum_speed</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QSD&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_maximum_speed</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QSD&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;QSD&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span> <span class="kw">as</span> <span class="ident">f32</span> <span class="op">/</span> <span class="number">10.</span>)
     }
@@ -1833,8 +1911,8 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to control</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">limp</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;L&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">limp</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;L&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 
@@ -1843,8 +1921,8 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to control</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">halt_hold</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;H&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">halt_hold</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;H&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 
@@ -1853,11 +1931,11 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to Query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_voltage</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_voltage</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> {
         <span class="comment">// response message looks like *5QV11200&lt;cr&gt;</span>
         <span class="comment">// Response is in mV</span>
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QV&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QV&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;QV&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span> <span class="kw">as</span> <span class="ident">f32</span> <span class="op">/</span> <span class="number">1000.0</span>)
     }
@@ -1867,12 +1945,12 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to Query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_temperature</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_temperature</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> {
         <span class="comment">// response message looks like *5QT441&lt;cr&gt;</span>
         <span class="comment">// Response is in 10s of celsius</span>
         <span class="comment">// 441 would be 44.1 celsius</span>
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QT&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QT&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;QT&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span> <span class="kw">as</span> <span class="ident">f32</span> <span class="op">/</span> <span class="number">10.0</span>)
     }
@@ -1882,11 +1960,11 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to Query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_current</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_current</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">f32</span><span class="op">&gt;</span> {
         <span class="comment">// response message looks like *5QT441&lt;cr&gt;</span>
         <span class="comment">// Response is in mA</span>
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QC&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QC&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate</span>(<span class="string">&quot;QC&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span> <span class="kw">as</span> <span class="ident">f32</span> <span class="op">/</span> <span class="number">1000.0</span>)
     }
@@ -1896,9 +1974,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_model</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">Model</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QMS&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_model</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">Model</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QMS&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate_string</span>(<span class="string">&quot;QMS&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">Model</span>::<span class="ident">from_str</span>(<span class="kw-2">&amp;</span><span class="ident">value</span>))
     }
@@ -1908,9 +1986,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_firmware_version</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QF&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_firmware_version</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QF&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate_string</span>(<span class="string">&quot;QF&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span>)
     }
@@ -1920,9 +1998,9 @@
     <span class="doccomment">/// # Arguments</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to query</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">query_serial_number</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
-        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QN&quot;</span>)).<span class="ident">await</span><span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="ident">await</span><span class="question-mark">?</span>;
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">query_serial_number</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">id</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">simple</span>(<span class="ident">id</span>, <span class="string">&quot;QN&quot;</span>)).<span class="kw">await</span><span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">driver</span>.<span class="ident">receive</span>().<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="kw">_</span>, <span class="ident">value</span>) <span class="op">=</span> <span class="ident">response</span>.<span class="ident">separate_string</span>(<span class="string">&quot;QN&quot;</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">value</span>)
     }
@@ -1935,7 +2013,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// * `id` - ID of servo you want to control</span>
     <span class="doccomment">/// * `blinking_mode` - Blinking mode desired. Can be combination to make motor blink during multiple modes</span>
-    <span class="kw">pub</span> <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">set_led_blinking</span>(
+    <span class="kw">pub</span> <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">set_led_blinking</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="ident">id</span>: <span class="ident">u8</span>,
         <span class="ident">blinking_mode</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">LedBlinking</span><span class="op">&gt;</span>,
@@ -1947,7 +2025,7 @@
             .<span class="ident">min</span>(<span class="ident">LedBlinking</span>::<span class="ident">AlwaysBlink</span> <span class="kw">as</span> <span class="ident">i32</span>);
         <span class="self">self</span>.<span class="ident">driver</span>
             .<span class="ident">send</span>(<span class="ident">LssCommand</span>::<span class="ident">with_param</span>(<span class="ident">id</span>, <span class="string">&quot;CLB&quot;</span>, <span class="ident">sum</span>))
-            .<span class="ident">await</span><span class="question-mark">?</span>;
+            .<span class="kw">await</span><span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }
 }
@@ -1966,22 +2044,22 @@
 
     <span class="attribute">#[<span class="ident">async_trait</span>]</span>
     <span class="kw">impl</span> <span class="ident">FramedDriver</span> <span class="kw">for</span> <span class="ident">MockedDriver</span> {
-        <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">send</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">command</span>: <span class="ident">LssCommand</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+        <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">send</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">command</span>: <span class="ident">LssCommand</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
             <span class="kw">let</span> <span class="ident">expected</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">expected_send</span>.<span class="ident">pop</span>().<span class="ident">unwrap</span>();
             <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">expected</span>, <span class="ident">command</span>.<span class="ident">as_str</span>().<span class="ident">to_owned</span>());
             <span class="prelude-val">Ok</span>(())
         }
 
-        <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">receive</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">LssResponse</span><span class="op">&gt;</span> {
+        <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">receive</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DriverResult</span><span class="op">&lt;</span><span class="ident">LssResponse</span><span class="op">&gt;</span> {
             <span class="prelude-val">Ok</span>(<span class="ident">LssResponse</span>::<span class="ident">new</span>(<span class="self">self</span>.<span class="ident">receive</span>.<span class="ident">pop</span>().<span class="ident">unwrap</span>()))
         }
     }
 
     <span class="attribute">#[<span class="ident">tokio</span>::<span class="ident">test</span>]</span>
-    <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">async_test_builds</span>() {}
+    <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">async_test_builds</span>() {}
 
     <span class="attribute">#[<span class="ident">tokio</span>::<span class="ident">test</span>]</span>
-    <span class="ident">async</span> <span class="kw">fn</span> <span class="ident">test_limp_color_move_hold</span>() {
+    <span class="kw">async</span> <span class="kw">fn</span> <span class="ident">test_limp_color_move_hold</span>() {
         <span class="kw">let</span> <span class="ident">mocked_framed_driver</span> <span class="op">=</span> <span class="ident">MockedDriver</span> {
             <span class="ident">expected_send</span>: <span class="macro">vec</span><span class="macro">!</span>[
                 <span class="string">&quot;#5QV\r&quot;</span>.<span class="ident">to_owned</span>(),
@@ -1993,11 +2071,11 @@
             <span class="ident">receive</span>: <span class="macro">vec</span><span class="macro">!</span>[<span class="string">&quot;*5QV11200\r&quot;</span>.<span class="ident">to_owned</span>()],
         };
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">driver</span> <span class="op">=</span> <span class="ident">LSSDriver</span>::<span class="ident">with_driver</span>(<span class="ident">Box</span>::<span class="ident">new</span>(<span class="ident">mocked_framed_driver</span>));
-        <span class="ident">driver</span>.<span class="ident">limp</span>(<span class="number">1</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>();
-        <span class="ident">driver</span>.<span class="ident">set_color</span>(<span class="number">2</span>, <span class="ident">LedColor</span>::<span class="ident">Red</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>();
-        <span class="ident">driver</span>.<span class="ident">move_to_position</span>(<span class="number">3</span>, <span class="number">180.0</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>();
-        <span class="ident">driver</span>.<span class="ident">halt_hold</span>(<span class="number">4</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>();
-        <span class="kw">let</span> <span class="ident">voltage</span> <span class="op">=</span> <span class="ident">driver</span>.<span class="ident">query_voltage</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>();
+        <span class="ident">driver</span>.<span class="ident">limp</span>(<span class="number">1</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>();
+        <span class="ident">driver</span>.<span class="ident">set_color</span>(<span class="number">2</span>, <span class="ident">LedColor</span>::<span class="ident">Red</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>();
+        <span class="ident">driver</span>.<span class="ident">move_to_position</span>(<span class="number">3</span>, <span class="number">180.0</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>();
+        <span class="ident">driver</span>.<span class="ident">halt_hold</span>(<span class="number">4</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">voltage</span> <span class="op">=</span> <span class="ident">driver</span>.<span class="ident">query_voltage</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>();
         <span class="macro">assert_relative_eq</span><span class="macro">!</span>(<span class="ident">voltage</span>, <span class="number">11.2</span>);
     }
 
@@ -2005,13 +2083,13 @@
         (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">expected</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>:<span class="ident">expr</span>) <span class="op">=</span><span class="op">&gt;</span> {
             <span class="attribute">#[<span class="ident">tokio</span>::<span class="ident">test</span>]</span>
             <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">redundant_closure_call</span>)]</span>
-            <span class="ident">async</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>() {
+            <span class="kw">async</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>() {
                 <span class="kw">let</span> <span class="ident">mocked_framed_driver</span> <span class="op">=</span> <span class="ident">MockedDriver</span> {
                     <span class="ident">expected_send</span>: <span class="macro">vec</span><span class="macro">!</span>[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">expected</span>.<span class="ident">to_owned</span>()],
                     <span class="ident">receive</span>: <span class="macro">vec</span><span class="macro">!</span>[],
                 };
                 <span class="kw">let</span> <span class="ident">driver</span> <span class="op">=</span> <span class="ident">LSSDriver</span>::<span class="ident">with_driver</span>(<span class="ident">Box</span>::<span class="ident">new</span>(<span class="ident">mocked_framed_driver</span>));
-                (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>)(<span class="ident">driver</span>).<span class="ident">await</span>;
+                (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>)(<span class="ident">driver</span>).<span class="kw">await</span>;
             }
         };
     }
@@ -2020,13 +2098,13 @@
         (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">expected</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">recv</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">val</span>:<span class="ident">expr</span>) <span class="op">=</span><span class="op">&gt;</span> {
             <span class="attribute">#[<span class="ident">tokio</span>::<span class="ident">test</span>]</span>
             <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">redundant_closure_call</span>)]</span>
-            <span class="ident">async</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>() {
+            <span class="kw">async</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>() {
                 <span class="kw">let</span> <span class="ident">mocked_framed_driver</span> <span class="op">=</span> <span class="ident">MockedDriver</span> {
                     <span class="ident">expected_send</span>: <span class="macro">vec</span><span class="macro">!</span>[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">expected</span>.<span class="ident">to_owned</span>()],
                     <span class="ident">receive</span>: <span class="macro">vec</span><span class="macro">!</span>[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">recv</span>.<span class="ident">to_owned</span>()],
                 };
                 <span class="kw">let</span> <span class="ident">driver</span> <span class="op">=</span> <span class="ident">LSSDriver</span>::<span class="ident">with_driver</span>(<span class="ident">Box</span>::<span class="ident">new</span>(<span class="ident">mocked_framed_driver</span>));
-                <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>)(<span class="ident">driver</span>).<span class="ident">await</span>;
+                <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>)(<span class="ident">driver</span>).<span class="kw">await</span>;
                 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">res</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">val</span>);
             }
         };
@@ -2036,13 +2114,13 @@
         (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">expected</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">recv</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>:<span class="ident">expr</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">val</span>:<span class="ident">expr</span>) <span class="op">=</span><span class="op">&gt;</span> {
             <span class="attribute">#[<span class="ident">tokio</span>::<span class="ident">test</span>]</span>
             <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">redundant_closure_call</span>)]</span>
-            <span class="ident">async</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>() {
+            <span class="kw">async</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>() {
                 <span class="kw">let</span> <span class="ident">mocked_framed_driver</span> <span class="op">=</span> <span class="ident">MockedDriver</span> {
                     <span class="ident">expected_send</span>: <span class="macro">vec</span><span class="macro">!</span>[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">expected</span>.<span class="ident">to_owned</span>()],
                     <span class="ident">receive</span>: <span class="macro">vec</span><span class="macro">!</span>[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">recv</span>.<span class="ident">to_owned</span>()],
                 };
                 <span class="kw">let</span> <span class="ident">driver</span> <span class="op">=</span> <span class="ident">LSSDriver</span>::<span class="ident">with_driver</span>(<span class="ident">Box</span>::<span class="ident">new</span>(<span class="ident">mocked_framed_driver</span>));
-                <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>)(<span class="ident">driver</span>).<span class="ident">await</span>;
+                <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">command</span>)(<span class="ident">driver</span>).<span class="kw">await</span>;
                 <span class="macro">assert_relative_eq</span><span class="macro">!</span>(<span class="ident">res</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">val</span>);
             }
         };
@@ -2051,8 +2129,8 @@
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_hold_command</span>,
         <span class="string">&quot;#4H\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> {
-            <span class="ident">driver</span>.<span class="ident">halt_hold</span>(<span class="number">4_u8</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>();
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> {
+            <span class="ident">driver</span>.<span class="ident">halt_hold</span>(<span class="number">4_u8</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>();
         }
     );
 
@@ -2060,38 +2138,48 @@
         <span class="ident">test_query_id</span>,
         <span class="string">&quot;#254QID\r&quot;</span>,
         <span class="string">&quot;*QID5\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_id</span>(<span class="ident">BROADCAST_ID</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_id</span>(<span class="ident">BROADCAST_ID</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">5</span>
     );
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_set_id</span>,
         <span class="string">&quot;#1CID2\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_id</span>(<span class="number">1</span>, <span class="number">2</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_id</span>(<span class="number">1</span>, <span class="number">2</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
     );
 
     <span class="comment">// Motion</span>
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_move_to</span>,
         <span class="string">&quot;#1D200\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">move_to_position</span>(<span class="number">1</span>, <span class="number">20.0</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">move_to_position</span>(<span class="number">1</span>, <span class="number">20.0</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
+    );
+    <span class="macro">test_command</span><span class="macro">!</span>(
+        <span class="ident">test_move_to_with_modifier</span>,
+        <span class="string">&quot;#1D200T15000\r&quot;</span>,
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> {
+            <span class="ident">driver</span>
+                .<span class="ident">move_to_position_with_modifier</span>(<span class="number">1</span>, <span class="number">20.0</span>, <span class="ident">CommandModifier</span>::<span class="ident">Timed</span>(<span class="number">15000</span>))
+                .<span class="kw">await</span>
+                .<span class="ident">unwrap</span>()
+        }
     );
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_set_target_position</span>,
         <span class="string">&quot;#1D200\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_target_position</span>(<span class="number">1</span>, <span class="number">20.0</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_target_position</span>(<span class="number">1</span>, <span class="number">20.0</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
     );
     <span class="macro">test_query_float</span><span class="macro">!</span>(
         <span class="ident">test_query_current_position</span>,
         <span class="string">&quot;#5QD\r&quot;</span>,
         <span class="string">&quot;*5QD132\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_position</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_position</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">13.2</span>
     );
     <span class="macro">test_query_float</span><span class="macro">!</span>(
         <span class="ident">test_query_target_position</span>,
         <span class="string">&quot;#5QDT\r&quot;</span>,
         <span class="string">&quot;*5QDT6783\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_target_position</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_target_position</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">678.3</span>
     );
 
@@ -2099,13 +2187,13 @@
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_set_rotation_speed_degrees</span>,
         <span class="string">&quot;#5WD90\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_rotation_speed</span>(<span class="number">5</span>, <span class="number">90.0</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_rotation_speed</span>(<span class="number">5</span>, <span class="number">90.0</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
     );
     <span class="macro">test_query_float</span><span class="macro">!</span>(
         <span class="ident">test_query_rotation_speed_degrees</span>,
         <span class="string">&quot;#5QWD\r&quot;</span>,
         <span class="string">&quot;*5QWD90\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_rotation_speed</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_rotation_speed</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">90.0</span>
     );
 
@@ -2114,44 +2202,44 @@
         <span class="ident">test_unknown_status</span>,
         <span class="string">&quot;#5Q\r&quot;</span>,
         <span class="string">&quot;*5Q0\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_status</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_status</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="ident">MotorStatus</span>::<span class="ident">Unknown</span>
     );
     <span class="macro">test_query</span><span class="macro">!</span>(
         <span class="ident">test_holding_status</span>,
         <span class="string">&quot;#5Q\r&quot;</span>,
         <span class="string">&quot;*5Q6\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_status</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_status</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="ident">MotorStatus</span>::<span class="ident">Holding</span>
     );
     <span class="macro">test_query</span><span class="macro">!</span>(
         <span class="ident">test_safety_status</span>,
         <span class="string">&quot;#5Q1\r&quot;</span>,
         <span class="string">&quot;*5Q3\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_safety_status</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_safety_status</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="ident">SafeModeStatus</span>::<span class="ident">TemperatureLimit</span>
     );
 
-    <span class="macro">test_command</span><span class="macro">!</span>(<span class="ident">test_limp</span>, <span class="string">&quot;#5L\r&quot;</span>, <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> {
-        <span class="ident">driver</span>.<span class="ident">limp</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>()
+    <span class="macro">test_command</span><span class="macro">!</span>(<span class="ident">test_limp</span>, <span class="string">&quot;#5L\r&quot;</span>, <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> {
+        <span class="ident">driver</span>.<span class="ident">limp</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>()
     });
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_halt_hold</span>,
         <span class="string">&quot;#5H\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">halt_hold</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">halt_hold</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
     );
 
     <span class="comment">// LED</span>
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_set_led</span>,
         <span class="string">&quot;#5LED3\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_color</span>(<span class="number">5</span>, <span class="ident">LedColor</span>::<span class="ident">Blue</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_color</span>(<span class="number">5</span>, <span class="ident">LedColor</span>::<span class="ident">Blue</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
     );
     <span class="macro">test_query</span><span class="macro">!</span>(
         <span class="ident">test_query_led</span>,
         <span class="string">&quot;#5QLED\r&quot;</span>,
         <span class="string">&quot;*5QLED5\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_color</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_color</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="ident">LedColor</span>::<span class="ident">Cyan</span>
     );
 
@@ -2159,116 +2247,116 @@
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_motion_profile_on</span>,
         <span class="string">&quot;#5EM1\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_motion_profile</span>(<span class="number">5</span>, <span class="bool-val">true</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_motion_profile</span>(<span class="number">5</span>, <span class="bool-val">true</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
     );
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_motion_profile_off</span>,
         <span class="string">&quot;#5EM0\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_motion_profile</span>(<span class="number">5</span>, <span class="bool-val">false</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_motion_profile</span>(<span class="number">5</span>, <span class="bool-val">false</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
     );
     <span class="macro">test_query</span><span class="macro">!</span>(
         <span class="ident">test_query_motion_profile_on</span>,
         <span class="string">&quot;#5QEM\r&quot;</span>,
         <span class="string">&quot;*5QEM1\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_motion_profile</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_motion_profile</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="bool-val">true</span>
     );
     <span class="macro">test_query</span><span class="macro">!</span>(
         <span class="ident">test_query_motion_profile_off</span>,
         <span class="string">&quot;#5QEM\r&quot;</span>,
         <span class="string">&quot;*5QEM0\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_motion_profile</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_motion_profile</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="bool-val">false</span>
     );
 
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_set_filter_position_count</span>,
         <span class="string">&quot;#5FPC10\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_filter_position_count</span>(<span class="number">5</span>, <span class="number">10</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_filter_position_count</span>(<span class="number">5</span>, <span class="number">10</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
     );
     <span class="macro">test_query</span><span class="macro">!</span>(
         <span class="ident">test_query_filter_position_count</span>,
         <span class="string">&quot;#5QFPC\r&quot;</span>,
         <span class="string">&quot;*5QFPC10\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_filter_position_count</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_filter_position_count</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">10</span>
     );
 
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_set_angular_stiffness</span>,
         <span class="string">&quot;#5AS-2\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_angular_stiffness</span>(<span class="number">5</span>, <span class="op">-</span><span class="number">2</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_angular_stiffness</span>(<span class="number">5</span>, <span class="op">-</span><span class="number">2</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
     );
     <span class="macro">test_query</span><span class="macro">!</span>(
         <span class="ident">test_query_angular_stiffness</span>,
         <span class="string">&quot;#5QAS\r&quot;</span>,
         <span class="string">&quot;*5QAS-2\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_angular_stiffness</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_angular_stiffness</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="op">-</span><span class="number">2</span>
     );
 
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_set_angular_holding_stiffness</span>,
         <span class="string">&quot;#5AH3\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_angular_holding_stiffness</span>(<span class="number">5</span>, <span class="number">3</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_angular_holding_stiffness</span>(<span class="number">5</span>, <span class="number">3</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
     );
     <span class="macro">test_query</span><span class="macro">!</span>(
         <span class="ident">test_query_angular_holding_stiffness</span>,
         <span class="string">&quot;#5QAH\r&quot;</span>,
         <span class="string">&quot;*5QAH3\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_angular_holding_stiffness</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_angular_holding_stiffness</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">3</span>
     );
 
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_set_angular_acceleration</span>,
         <span class="string">&quot;#5AA30\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_angular_acceleration</span>(<span class="number">5</span>, <span class="number">30</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_angular_acceleration</span>(<span class="number">5</span>, <span class="number">30</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
     );
     <span class="macro">test_query</span><span class="macro">!</span>(
         <span class="ident">test_query_angular_acceleration</span>,
         <span class="string">&quot;#5QAA\r&quot;</span>,
         <span class="string">&quot;*5QAA30\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_angular_acceleration</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_angular_acceleration</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">30</span>
     );
 
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_set_angular_deceleration</span>,
         <span class="string">&quot;#5AD30\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_angular_deceleration</span>(<span class="number">5</span>, <span class="number">30</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_angular_deceleration</span>(<span class="number">5</span>, <span class="number">30</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
     );
     <span class="macro">test_query</span><span class="macro">!</span>(
         <span class="ident">test_query_angular_deceleration</span>,
         <span class="string">&quot;#5QAD\r&quot;</span>,
         <span class="string">&quot;*5QAD30\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_angular_deceleration</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_angular_deceleration</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">30</span>
     );
 
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_maximum_motor_duty</span>,
         <span class="string">&quot;#5MMD512\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_maximum_motor_duty</span>(<span class="number">5</span>, <span class="number">512</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_maximum_motor_duty</span>(<span class="number">5</span>, <span class="number">512</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
     );
     <span class="macro">test_query</span><span class="macro">!</span>(
         <span class="ident">test_query_maximum_motor_duty</span>,
         <span class="string">&quot;#5QMMD\r&quot;</span>,
         <span class="string">&quot;*5QMMD512\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_maximum_motor_duty</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_maximum_motor_duty</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">512</span>
     );
 
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_maximum_speed</span>,
         <span class="string">&quot;#5SD1800\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_maximum_speed</span>(<span class="number">5</span>, <span class="number">180.</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">set_maximum_speed</span>(<span class="number">5</span>, <span class="number">180.</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
     );
     <span class="macro">test_query_float</span><span class="macro">!</span>(
         <span class="ident">test_query_maximum_speed</span>,
         <span class="string">&quot;#5QSD\r&quot;</span>,
         <span class="string">&quot;*5QSD1800\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_maximum_speed</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_maximum_speed</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">180.</span>
     );
 
@@ -2277,21 +2365,21 @@
         <span class="ident">test_query_voltage</span>,
         <span class="string">&quot;#5QV\r&quot;</span>,
         <span class="string">&quot;*5QV11200\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_voltage</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_voltage</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">11.2</span>
     );
     <span class="macro">test_query_float</span><span class="macro">!</span>(
         <span class="ident">test_query_temperature</span>,
         <span class="string">&quot;#5QT\r&quot;</span>,
         <span class="string">&quot;*5QT564\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_temperature</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_temperature</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">56.4</span>
     );
     <span class="macro">test_query_float</span><span class="macro">!</span>(
         <span class="ident">test_query_current</span>,
         <span class="string">&quot;#5QC\r&quot;</span>,
         <span class="string">&quot;*5QC140\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_current</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_current</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="number">0.14</span>
     );
 
@@ -2299,21 +2387,21 @@
         <span class="ident">test_query_model_string</span>,
         <span class="string">&quot;#5QMS\r&quot;</span>,
         <span class="string">&quot;*5QMSLSS-HS1\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_model</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_model</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="ident">Model</span>::<span class="ident">HS1</span>
     );
     <span class="macro">test_query</span><span class="macro">!</span>(
         <span class="ident">test_query_firmware_version</span>,
         <span class="string">&quot;#5QF\r&quot;</span>,
         <span class="string">&quot;*5QF368\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_firmware_version</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_firmware_version</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="string">&quot;368&quot;</span>.<span class="ident">to_owned</span>()
     );
     <span class="macro">test_query</span><span class="macro">!</span>(
         <span class="ident">test_query_serial_number</span>,
         <span class="string">&quot;#5QN\r&quot;</span>,
         <span class="string">&quot;*5QN12345678\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_serial_number</span>(<span class="number">5</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() },
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">query_serial_number</span>(<span class="number">5</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() },
         <span class="string">&quot;12345678&quot;</span>.<span class="ident">to_owned</span>()
     );
 
@@ -2321,63 +2409,63 @@
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_blinking_mode_1</span>,
         <span class="string">&quot;#5CLB0\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> {
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> {
             <span class="ident">driver</span>
                 .<span class="ident">set_led_blinking</span>(<span class="number">5</span>, <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">LedBlinking</span>::<span class="ident">NoBlinking</span>])
-                .<span class="ident">await</span>
+                .<span class="kw">await</span>
                 .<span class="ident">unwrap</span>()
         }
     );
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_blinking_mode_2</span>,
         <span class="string">&quot;#5CLB1\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> {
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> {
             <span class="ident">driver</span>
                 .<span class="ident">set_led_blinking</span>(<span class="number">5</span>, <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">LedBlinking</span>::<span class="ident">Limp</span>])
-                .<span class="ident">await</span>
+                .<span class="kw">await</span>
                 .<span class="ident">unwrap</span>()
         }
     );
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_blinking_mode_3</span>,
         <span class="string">&quot;#5CLB2\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> {
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> {
             <span class="ident">driver</span>
                 .<span class="ident">set_led_blinking</span>(<span class="number">5</span>, <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">LedBlinking</span>::<span class="ident">Holding</span>])
-                .<span class="ident">await</span>
+                .<span class="kw">await</span>
                 .<span class="ident">unwrap</span>()
         }
     );
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_blinking_mode_4</span>,
         <span class="string">&quot;#5CLB12\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> {
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> {
             <span class="ident">driver</span>
                 .<span class="ident">set_led_blinking</span>(
                     <span class="number">5</span>,
                     <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">LedBlinking</span>::<span class="ident">Accelerating</span>, <span class="ident">LedBlinking</span>::<span class="ident">Decelerating</span>],
                 )
-                .<span class="ident">await</span>
+                .<span class="kw">await</span>
                 .<span class="ident">unwrap</span>()
         }
     );
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_blinking_mode_5</span>,
         <span class="string">&quot;#5CLB48\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> {
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> {
             <span class="ident">driver</span>
                 .<span class="ident">set_led_blinking</span>(<span class="number">5</span>, <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">LedBlinking</span>::<span class="ident">Free</span>, <span class="ident">LedBlinking</span>::<span class="ident">Travelling</span>])
-                .<span class="ident">await</span>
+                .<span class="kw">await</span>
                 .<span class="ident">unwrap</span>()
         }
     );
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_blinking_mode_6</span>,
         <span class="string">&quot;#5CLB63\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> {
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> {
             <span class="ident">driver</span>
                 .<span class="ident">set_led_blinking</span>(<span class="number">5</span>, <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">LedBlinking</span>::<span class="ident">AlwaysBlink</span>])
-                .<span class="ident">await</span>
+                .<span class="kw">await</span>
                 .<span class="ident">unwrap</span>()
         }
     );
@@ -2385,7 +2473,7 @@
     <span class="macro">test_command</span><span class="macro">!</span>(
         <span class="ident">test_reset</span>,
         <span class="string">&quot;#254RESET\r&quot;</span>,
-        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="ident">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">reset</span>(<span class="ident">BROADCAST_ID</span>).<span class="ident">await</span>.<span class="ident">unwrap</span>() }
+        <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">driver</span>: <span class="ident">LSSDriver</span><span class="op">|</span> <span class="kw">async</span> <span class="kw">move</span> { <span class="ident">driver</span>.<span class="ident">reset</span>(<span class="ident">BROADCAST_ID</span>).<span class="kw">await</span>.<span class="ident">unwrap</span>() }
     );
 }
 </pre></div>

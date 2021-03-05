@@ -1,3 +1,3 @@
 (function() {var implementors = {};
-implementors["lss_driver"] = [{"text":"impl Copy for LedColor","synthetic":false,"types":[]},{"text":"impl Copy for MotorStatus","synthetic":false,"types":[]},{"text":"impl Copy for SafeModeStatus","synthetic":false,"types":[]},{"text":"impl Copy for LedBlinking","synthetic":false,"types":[]}];
+implementors["lss_driver"] = [{"text":"impl Copy for LedColor","synthetic":false,"types":[]},{"text":"impl Copy for MotorStatus","synthetic":false,"types":[]},{"text":"impl Copy for SafeModeStatus","synthetic":false,"types":[]},{"text":"impl Copy for LedBlinking","synthetic":false,"types":[]},{"text":"impl Copy for CommandModifier","synthetic":false,"types":[]}];
 if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
